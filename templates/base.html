@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+{{ DISPLAY_PAGE_ON_MENU }}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>{% block windowtitle %}{{ SITENAME }}{% endblock %}</title>
+    <meta name="description" content="">
+    <meta name="author" content="{{ AUTHOR }}">
+
+    <link href="{{ SITEURL }}/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/timberland.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/timberland-icons.css" rel="stylesheet">
+    {# Removing the local css styles from bootstrap theme 
+    <link href="{{ SITEURL }}/theme/local.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/pygments.css" rel="stylesheet">
+    #}
+    {% include "analytics.html" %}
+    {% include "disqus.html" %}
+  </head>
+  <body>
+    {% include "facebook.html" %}
+    {% include "github.html" %}
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="brand" href="{{ SITEURL }}/index.html">{{ SITENAME }}</a>
+          <ul class="nav">
+            {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
+            {% endfor %}
+            {% if DISPLAY_PAGES_ON_MENU %}
+            {% for p in PAGES %}
+            <li {% if page == p %}class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+            {% endfor %}
+            {% endif %}
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row-fluid">
+        <div class="span2">
+          <div class="well">
+            <div class="social">
+              <h3>Social</h3>
+              <ul class="unstyled">
+                {% for name, link in SOCIAL|sort %}
+                {% set icon_name = name|lower|replace(" ", "-") %}
+                <li><i class="icon-{{icon_name}}-sign icon-large icon-color-{{icon_name}}"></i> <a href="{{ link }}">{{ name }}</a></li>
+                {% endfor %}
+              </ul>
+            </div>
+            <h3>Categories</h3>
+            <ul class="unstyled">
+              {% for cat, articles in categories %}
+              <li {% if cat == category %}class="active"{% endif %}><span class="badge">{{ articles|length }}</span> <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              {% endfor %}
+            </ul>
+            {% if LINKS|length %}
+            <h3>Blogroll</h3>
+            <ul>
+              {% for name, link in LINKS %}
+              <li><a href="{{ link }}">{{ name }}</a></li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+            <h3>History</h3>
+            <ul class="unstyled">
+              <li><i class="icon-book"></i> <a href="{{ SITEURL }}/archives.html">archives</a></li>
+              <li><i class="icon-tags"></i> <a href="{{ SITEURL }}/tags.html">tags</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="span10">
+          {% block indextitle %}<div class="page-header"><h1>{% block title %} {{ self.windowtitle() }} {% endblock %}</h1></div>{% endblock %}
+          {% block content %}{% endblock %}
+        </div>
+      </div>
+    </div>
+
+    <footer class="footer">
+    <div class="container">
+      <p>Powered by <a href="http://alexis.notmyidea.org/pelican/">Pelican</a></p>
+      <p><a href="http://github.com/dandesousa/pelican-timberland">Timberland</a> based on <a href="http://twitter.github.com/bootstrap/">Bootstrap, from Twitter</a>.</p>
+      <p><a href="http://glyphicons.com">Glyphicons Free</a> licensed under <a href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p> 
+      <p><a href="http://fortawesome.github.com/Font-Awesome">Font Awesome by Dave Gandy</a></p>
+      <p>&copy; {{ AUTHOR }} 2013</p>
+    </div>
+    </footer>
+  </body>
+</html>
