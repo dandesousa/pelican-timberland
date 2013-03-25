@@ -56,7 +56,7 @@
             <h3>Categories</h3>
             <ul class="unstyled">
               {% for cat, articles in categories %}
-              <li {% if cat == category %}class="active"{% endif %}><span class="badge">{{ articles|length }}</span> <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              <li><span class="badge {% if cat == category %}badge-success{% endif %}">{{ articles|length }}</span> <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
               {% endfor %}
             </ul>
             {% if LINKS|length %}
@@ -69,8 +69,8 @@
             {% endif %}
             <h3>History</h3>
             <ul class="unstyled">
-              <li><i class="icon-book"></i> <a href="{{ SITEURL }}/archives.html">archives</a></li>
-              <li><i class="icon-tags"></i> <a href="{{ SITEURL }}/tags.html">tags</a></li>
+              <li><i class="icon-book"></i> <a href="{{ SITEURL }}/archives.html">Archives</a></li>
+              <li><i class="icon-tags"></i> <a href="{{ SITEURL }}/tags.html">Tags</a></li>
             </ul>
           </div>
         </div>
