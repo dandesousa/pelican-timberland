@@ -20,3 +20,10 @@ Social Icons
 -------------
 
 Currently only the social networking services shown in the screenshot are "colorized". If you need any others, please update timberland-icons.css and send a pull request.
+
+Pelican Shovel
+--------------
+
+Like this theme? Also consider taking a look at my other pelican project, [pelican-shovel][dandesousa/pelican-shovel]. It helps you manage your pelican blog!
+
+[dandesousa/pelican-shovel]: http://github.com/dandesousa/pelican-shovel
