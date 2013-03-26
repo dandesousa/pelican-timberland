@@ -1,14 +1,16 @@
 {% extends "base.html" %}
+{% block indextitle %}{% endblock %}
 {% block content %}
 
 {% if articles %}
 {% for article in (articles_page.object_list if articles_page else articles) %}
 <div class='article'>
-  <h2><a href="{{ SITEURL}}/{{ article.url }}">{{ article.title|title }}</a></h2>
-  <div class="well well-small">{% include "metadata.html" %}</div>
+  <h3>{{ article.title|title }}</h3>
+  <div>{% include "metadata.html" %}</div>
+  <hr class="soften-right" />
   <div class="summary">{{ article.summary }}<br>
     <br>
-    <a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">more…</a>
+    <a class="btn primary xsmall" href="{{ SITEURL }}/{{ article.url }}">More...</a>
   </div>
 </div>	
 <hr />

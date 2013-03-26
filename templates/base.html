@@ -8,6 +8,7 @@
     <meta name="author" content="{{ AUTHOR }}">
 
     <link href="{{ SITEURL }}/theme/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ SITEURL }}/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/font-awesome.min.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/timberland.css" rel="stylesheet">
     <link href="{{ SITEURL }}/theme/css/timberland-icons.css" rel="stylesheet">
@@ -43,36 +44,37 @@
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span2">
-          <div class="well">
-            <div class="social">
-              <h3>Social</h3>
-              <ul class="unstyled">
-                {% for name, link in SOCIAL|sort %}
-                {% set icon_name = name|lower|replace(" ", "-") %}
-                <li><i class="icon-{{icon_name}}-sign icon-large icon-color-{{icon_name}}"></i> <a href="{{ link }}">{{ name }}</a></li>
-                {% endfor %}
-              </ul>
-            </div>
-            <h3>Categories</h3>
+          <div class="social">
+            <h2><small>Social</small></h2>
             <ul class="unstyled">
-              {% for cat, articles in categories %}
-              <li><span class="badge {% if cat == category %}badge-success{% endif %}">{{ articles|length }}</span> <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+              {% for name, link in SOCIAL|sort %}
+              {% set icon_name = name|lower|replace(" ", "-") %}
+              <li><i class="icon-{{icon_name}}-sign icon-large icon-color-{{icon_name}}"></i> <a href="{{ link }}">{{ name }}</a></li>
               {% endfor %}
-            </ul>
-            {% if LINKS|length %}
-            <h3>Blogroll</h3>
-            <ul>
-              {% for name, link in LINKS %}
-              <li><a href="{{ link }}">{{ name }}</a></li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-            <h3>History</h3>
-            <ul class="unstyled">
-              <li><i class="icon-book"></i> <a href="{{ SITEURL }}/archives.html">Archives</a></li>
-              <li><i class="icon-tags"></i> <a href="{{ SITEURL }}/tags.html">Tags</a></li>
             </ul>
           </div>
+          <hr class="soften-left-right" />
+          <h2><small>Categories</small></h2>
+          <ul class="unstyled">
+            {% for cat, articles in categories %}
+            <li><span class="badge {% if cat == category %}badge-success{% endif %}">{{ articles|length }}</span> <a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% endfor %}
+          </ul>
+          <hr class="soften-left-right" />
+          {% if LINKS|length %}
+          <h2><small>Blogroll</small></h2>
+          <ul>
+            {% for name, link in LINKS %}
+            <li><a href="{{ link }}">{{ name }}</a></li>
+            {% endfor %}
+          </ul>
+          <hr class="soften-left-right" />
+          {% endif %}
+          <h2><small>History</small></h2>
+          <ul class="unstyled">
+            <li><i class="icon-book"></i> <a href="{{ SITEURL }}/archives.html">Archives</a></li>
+            <li><i class="icon-tags"></i> <a href="{{ SITEURL }}/tags.html">Tags</a></li>
+          </ul>
         </div>
 
         <div class="span10">
