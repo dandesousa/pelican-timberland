@@ -3,6 +3,8 @@ Timberland
 
 Timberland is a custom made, bootstrap base theme. I am my no means a web designer, but I wanted a theme to help me get familiar with bootstrap and blog on a site with clean, minimalist lines.
 
+![](screenshot.png)
+
 The theme supports the following:
 
   * Articles and pages as a standard pelican theme
@@ -27,3 +29,4 @@ Pelican Shovel
 Like this theme? Also consider taking a look at my other pelican project, [pelican-shovel][dandesousa/pelican-shovel]. It helps you manage your pelican blog!
 
 [dandesousa/pelican-shovel]: http://github.com/dandesousa/pelican-shovel
+[screenshot]: https://github.com/dandesousa/pelican-timberland/blob/master/screenshot.png
