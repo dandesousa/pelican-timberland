@@ -75,6 +75,20 @@
             <li><i class="icon-book"></i> <a href="{{ SITEURL }}/archives.html">Archives</a></li>
             <li><i class="icon-tags"></i> <a href="{{ SITEURL }}/tags.html">Tags</a></li>
           </ul>
+
+          {% if GOOGLE_SITE_SEARCH_URL %}
+          <hr class="soften-left-right" />
+          <div class="google-search-area">
+            <form name="google-search" method="get" action="http://www.google.com/search">
+              <input type="hidden" name="sitesearch" value="{{ GOOGLE_SITE_SEARCH_URL }}" />
+              <div class="input-prepend">
+                <input name="q" style="width: 80%" type="text" placeholder="Google on this site..." />
+                <span class="add-on"><i class="icon-search"></i></span>
+              </div>
+            </form>
+          </div>
+          {% endif %}
+
         </div>
 
         <div class="span10">
