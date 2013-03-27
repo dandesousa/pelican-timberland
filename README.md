@@ -13,6 +13,7 @@ The theme supports the following:
   * Facebook integration (not fully tested)
   * Font-Awesome integration for customized icons for blog components and social networking icons
   * Integration of proxima-nova and museo-slab fonts (also used by Font-Awesome site), and more sane typography spacing for articles.
+  * Google site search (regular google search - not custom search)
 
 If you use the theme and would like to contribute or suggest improvements feel free. Also feel free to fork or copy it and create a new theme, its Apache licensed.
 
